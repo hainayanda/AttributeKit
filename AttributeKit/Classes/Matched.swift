@@ -87,8 +87,7 @@ public extension String {
             let stringRange = NSRange(location: .zero, length: utf16.count)
             let matches = regex.matches(in: self, range: stringRange)
             return !matches.isEmpty
-        }
-        catch {
+        } catch {
             return false
         }
     }
@@ -127,4 +126,3 @@ public extension Matched where Wrapped: Comparable {
         }
     }
 }
-

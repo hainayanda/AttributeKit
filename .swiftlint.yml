@@ -1,10 +1,10 @@
 excluded:
   - Example/Pods
+  - Example/AttributeKit
 
 included:
-  - Impose
+  - AttributeKit
   - Example/Tests
-  - Example/Impose
 
 disabled_rules:
  - trailing_whitespace

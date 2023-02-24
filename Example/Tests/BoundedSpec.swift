@@ -13,6 +13,7 @@ import Nimble
 
 class BoundedSpec: QuickSpec {
     
+    // swiftlint:disable function_body_length
     override func spec() {
         describe("Bounded") {
             var range: ClosedRange<Int>!

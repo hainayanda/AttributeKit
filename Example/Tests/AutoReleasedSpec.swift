@@ -12,7 +12,7 @@ import Quick
 import Nimble
 
 class AutoReleasedSpec: QuickSpec {
-    
+    // swiftlint:disable force_try
     override func spec() {
         var lifeSpan: TimeInterval!
         var wrapperUnderTest: AutoReleased<Int>!
@@ -22,7 +22,7 @@ class AutoReleasedSpec: QuickSpec {
         }
         it("should released initial value after life span timeout") {
             expect(wrapperUnderTest.wrappedValue).to(equal(100))
-            try await Task.sleep(nanoseconds: UInt64(lifeSpan) * 1_000_000_000)
+            try! await Task.sleep(nanoseconds: UInt64(lifeSpan) * 1_000_000_000)
             expect(wrapperUnderTest.wrappedValue).to(beNil())
         }
         it("should released after life span timeout") {

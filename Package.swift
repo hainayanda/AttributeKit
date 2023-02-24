@@ -17,8 +17,8 @@ let package = Package(
     ],
     dependencies: [
         // uncomment this code to test
-//        .package(url: "https://github.com/Quick/Quick.git", from: "5.0.1"),
-//        .package(url: "https://github.com/Quick/Nimble.git", from: "10.0.0")
+        .package(url: "https://github.com/Quick/Quick.git", from: "6.1.0"),
+        .package(url: "https://github.com/Quick/Nimble.git", from: "11.2.1")
     ],
     targets: [
         .target(
@@ -27,13 +27,13 @@ let package = Package(
             path: "AttributeKit/Classes"
         ),
         // uncomment this code to test
-//        .testTarget(
-//            name: "AttributeKitTests",
-//            dependencies: [
-//                "AttributeKit", "Quick", "Nimble"
-//            ],
-//            path: "Example/Tests",
-//            exclude: ["Info.plist"]
-//        )
+        .testTarget(
+            name: "AttributeKitTests",
+            dependencies: [
+                "AttributeKit", "Quick", "Nimble"
+            ],
+            path: "Example/Tests",
+            exclude: ["Info.plist"]
+        )
     ]
 )

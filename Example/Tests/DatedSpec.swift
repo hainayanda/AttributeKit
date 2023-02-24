@@ -13,6 +13,7 @@ import Nimble
 
 class DatedSpec: QuickSpec {
     
+    // swiftlint:disable function_body_length
     override func spec() {
         describe("String to Date") {
             it("should convert String to Date according to format") {

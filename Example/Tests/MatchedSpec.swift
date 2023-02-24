@@ -13,6 +13,7 @@ import Nimble
 
 class MatchedSpec: QuickSpec {
     
+    // swiftlint:disable function_body_length
     override func spec() {
         it("should still assign nil") {
             @Matched(regex: .regexEmail) var text: String? = "hainayanda@outlook.com"
