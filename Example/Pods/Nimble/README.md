@@ -32,7 +32,8 @@ expect(ocean.isClean).toEventually(beTruthy())
   - [Operator Overloads](#operator-overloads)
   - [Lazily Computed Values](#lazily-computed-values)
   - [C Primitives](#c-primitives)
-  - [Asynchronous Expectations](#asynchronous-expectations)
+  - [Async/Await in Expectations](#asyncawait-support)
+  - [Polling Expectations](#polling-expectations)
   - [Objective-C Support](#objective-c-support)
   - [Disabling Objective-C Shorthand](#disabling-objective-c-shorthand)
 - [Built-in Matcher Functions](#built-in-matcher-functions)
@@ -297,7 +298,30 @@ expect(1 as CInt).to(equal(1))
 expect(@(1 + 1)).to(equal(@2));
 ```
 
-## Asynchronous Expectations
+## Async/Await Support
+
+Nimble makes it easy to await for an async function to complete. Simply pass
+the async function in to `expect`:
+
+```swift
+// Swift
+await expect(await aFunctionReturning1()).to(equal(1))
+```
+
+The async function is awaited on first, before passing it to the matcher. This
+enables the matcher to run synchronous code like before, without caring about
+whether the value it's processing was abtained async or not.
+
+Async support is Swift-only, and it requires that you execute the test in an
+async context. For XCTest, this is as simple as marking your test function with
+`async`. If you use Quick, then you don't need to do anything because as of
+Quick 6, all tests are executed in an async context.
+
+Note: Async/Await support is different than the `toEventually`/`toEventuallyNot`
+feature described below. In fact, async/await is not supported in expectations
+that make use of `toEventually` or `toEventuallyNot`.
+
+## Polling Expectations
 
 In Nimble, it's easy to make expectations on values that are updated
 asynchronously. Just use `toEventually` or `toEventuallyNot`:
@@ -423,6 +447,8 @@ pollution for whatever incomplete code that was running on the main thread.
 Blocking the main thread can be caused by blocking IO, calls to sleep(),
 deadlocks, and synchronous IPC.
 
+### Changing default Timeout and Poll Intervals
+
 In some cases (e.g. when running on slower machines) it can be useful to modify
 the default timeout and poll interval values. This can be done as follows:
 
@@ -435,6 +461,67 @@ Nimble.AsyncDefaults.timeout = .seconds(5)
 // Slow the polling interval to 0.1 seconds:
 Nimble.AsyncDefaults.pollInterval = .milliseconds(100)
 ```
+
+You can set these globally at test startup in two ways:
+
+#### Quick
+
+If you use [Quick](https://github.com/Quick/Quick), add a [`QuickConfiguration` subclass](https://github.com/Quick/Quick/blob/main/Documentation/en-us/ConfiguringQuick.md) which sets your desired `AsyncDefaults`.
+
+```swift
+import Quick
+import Nimble
+
+class AsyncConfiguration: QuickConfiguration {
+    override class func configure(_ configuration: QCKConfiguration) {
+        Nimble.AsyncDefaults.timeout = .seconds(5)
+        Nimble.AsyncDefaults.pollInterval = .milliseconds(100)
+    }
+}
+```
+
+#### XCTest
+
+If you use [XCTest](https://developer.apple.com/documentation/xctest), add an object that conforms to [`XCTestObservation`](https://developer.apple.com/documentation/xctest/xctestobservation) and implement [`testBundleWillStart(_:)`](https://developer.apple.com/documentation/xctest/xctestobservation/1500772-testbundlewillstart).
+
+Additionally, you will need to register this observer with the [`XCTestObservationCenter`](https://developer.apple.com/documentation/xctest/xctestobservationcenter) at test startup. To do this, set the `NSPrincipalClass` key in your test bundle's Info.plist and implement a class with that same name.
+
+For example
+
+```xml
+<!-- Info.plist -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- ... -->
+	<key>NSPrincipalClass</key>
+	<string>MyTests.TestSetup</string>
+</dict>
+</plist>
+```
+
+```swift
+// TestSetup.swift
+import XCTest
+import Nimble
+
+@objc
+class TestSetup: NSObject {
+	override init() {
+		XCTestObservationCenter.shared.register(AsyncConfigurationTestObserver())
+	}
+}
+
+class AsyncConfigurationTestObserver: NSObject, XCTestObserver {
+    func testBundleWillStart(_ testBundle: Bundle) {
+        Nimble.AsyncDefaults.timeout = .seconds(5)
+        Nimble.AsyncDefaults.pollInterval = .milliseconds(100)
+    }
+}
+```
+
+In Linux, you can implement `LinuxMain` to set the AsyncDefaults before calling `XCTMain`.
 
 ## Objective-C Support
 

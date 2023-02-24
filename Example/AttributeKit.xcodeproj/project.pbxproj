@@ -7,12 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3AE6D51429A85CCF0021491A /* AutoReleasedSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE6D51329A85CCF0021491A /* AutoReleasedSpec.swift */; };
+		3AE6D51629A861520021491A /* BoundedSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE6D51529A861520021491A /* BoundedSpec.swift */; };
+		3AE6D51829A862D00021491A /* BufferedSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE6D51729A862D00021491A /* BufferedSpec.swift */; };
+		3AE6D51A29A864300021491A /* CalculatedSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE6D51929A864300021491A /* CalculatedSpec.swift */; };
+		3AE6D51C29A870630021491A /* DatedSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE6D51B29A870630021491A /* DatedSpec.swift */; };
+		3AE6D51E29A87FAF0021491A /* FilteredSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE6D51D29A87FAF0021491A /* FilteredSpec.swift */; };
+		3AE6D52029A880BE0021491A /* MappedSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE6D51F29A880BE0021491A /* MappedSpec.swift */; };
+		3AE6D52229A881B60021491A /* MatchedSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE6D52129A881B60021491A /* MatchedSpec.swift */; };
+		3AE6D52429A89D9E0021491A /* SortedSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE6D52329A89D9E0021491A /* SortedSpec.swift */; };
+		3AE6D52629A89EBE0021491A /* UniqueSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE6D52529A89EBE0021491A /* UniqueSpec.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		7B63E8C0F9CC8B97DDB2DB8C /* Pods_AttributeKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 199880541AE448A145FFFD85 /* Pods_AttributeKit_Example.framework */; };
 		FAF6D28A23FE9DD6A15B7672 /* Pods_AttributeKit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C17AAF984D99A81E85F00C8 /* Pods_AttributeKit_Tests.framework */; };
 /* End PBXBuildFile section */
@@ -30,6 +39,16 @@
 /* Begin PBXFileReference section */
 		0C17AAF984D99A81E85F00C8 /* Pods_AttributeKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AttributeKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		199880541AE448A145FFFD85 /* Pods_AttributeKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AttributeKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AE6D51329A85CCF0021491A /* AutoReleasedSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoReleasedSpec.swift; sourceTree = "<group>"; };
+		3AE6D51529A861520021491A /* BoundedSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundedSpec.swift; sourceTree = "<group>"; };
+		3AE6D51729A862D00021491A /* BufferedSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BufferedSpec.swift; sourceTree = "<group>"; };
+		3AE6D51929A864300021491A /* CalculatedSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatedSpec.swift; sourceTree = "<group>"; };
+		3AE6D51B29A870630021491A /* DatedSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatedSpec.swift; sourceTree = "<group>"; };
+		3AE6D51D29A87FAF0021491A /* FilteredSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredSpec.swift; sourceTree = "<group>"; };
+		3AE6D51F29A880BE0021491A /* MappedSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MappedSpec.swift; sourceTree = "<group>"; };
+		3AE6D52129A881B60021491A /* MatchedSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchedSpec.swift; sourceTree = "<group>"; };
+		3AE6D52329A89D9E0021491A /* SortedSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortedSpec.swift; sourceTree = "<group>"; };
+		3AE6D52529A89EBE0021491A /* UniqueSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniqueSpec.swift; sourceTree = "<group>"; };
 		5B41070565E13F4A0BAB6835 /* Pods-AttributeKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AttributeKit_Example.release.xcconfig"; path = "Target Support Files/Pods-AttributeKit_Example/Pods-AttributeKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* AttributeKit_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AttributeKit_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -40,13 +59,12 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* AttributeKit_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AttributeKit_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		6274D2F26C1FEB58FCD71956 /* Pods-AttributeKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AttributeKit_Example.debug.xcconfig"; path = "Target Support Files/Pods-AttributeKit_Example/Pods-AttributeKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		8ACAD85FB5DA7C731D12CC76 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		8ACAD85FB5DA7C731D12CC76 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		921BEB9AF4F72EC7A6F8C5D3 /* Pods-AttributeKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AttributeKit_Tests.release.xcconfig"; path = "Target Support Files/Pods-AttributeKit_Tests/Pods-AttributeKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		C9F91A1E232770DE955B62FE /* AttributeKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = AttributeKit.podspec; path = ../AttributeKit.podspec; sourceTree = "<group>"; };
+		C9F91A1E232770DE955B62FE /* AttributeKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = AttributeKit.podspec; path = ../AttributeKit.podspec; sourceTree = "<group>"; };
 		E18A949ACBC229671543E4A9 /* Pods-AttributeKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AttributeKit_Tests.debug.xcconfig"; path = "Target Support Files/Pods-AttributeKit_Tests/Pods-AttributeKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		F6D5F29F540DB5E68BF7726D /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		F6D5F29F540DB5E68BF7726D /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +95,6 @@
 				E18A949ACBC229671543E4A9 /* Pods-AttributeKit_Tests.debug.xcconfig */,
 				921BEB9AF4F72EC7A6F8C5D3 /* Pods-AttributeKit_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -127,8 +144,17 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
+				3AE6D51329A85CCF0021491A /* AutoReleasedSpec.swift */,
+				3AE6D51529A861520021491A /* BoundedSpec.swift */,
+				3AE6D51729A862D00021491A /* BufferedSpec.swift */,
+				3AE6D51929A864300021491A /* CalculatedSpec.swift */,
+				3AE6D51B29A870630021491A /* DatedSpec.swift */,
+				3AE6D51D29A87FAF0021491A /* FilteredSpec.swift */,
+				3AE6D51F29A880BE0021491A /* MappedSpec.swift */,
+				3AE6D52129A881B60021491A /* MatchedSpec.swift */,
+				3AE6D52329A89D9E0021491A /* SortedSpec.swift */,
+				3AE6D52529A89EBE0021491A /* UniqueSpec.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -228,6 +254,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -361,7 +388,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				3AE6D51A29A864300021491A /* CalculatedSpec.swift in Sources */,
+				3AE6D51629A861520021491A /* BoundedSpec.swift in Sources */,
+				3AE6D52029A880BE0021491A /* MappedSpec.swift in Sources */,
+				3AE6D52429A89D9E0021491A /* SortedSpec.swift in Sources */,
+				3AE6D51C29A870630021491A /* DatedSpec.swift in Sources */,
+				3AE6D51E29A87FAF0021491A /* FilteredSpec.swift in Sources */,
+				3AE6D52229A881B60021491A /* MatchedSpec.swift in Sources */,
+				3AE6D51429A85CCF0021491A /* AutoReleasedSpec.swift in Sources */,
+				3AE6D51829A862D00021491A /* BufferedSpec.swift in Sources */,
+				3AE6D52629A89EBE0021491A /* UniqueSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,7 +476,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -486,7 +522,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -500,6 +536,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AttributeKit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
@@ -515,6 +552,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AttributeKit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
@@ -537,6 +575,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -555,6 +594,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";

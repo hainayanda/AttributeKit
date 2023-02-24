@@ -1,12 +1,12 @@
 PODS:
   - AttributeKit (0.1.0)
-  - Nimble (10.0.0)
-  - Quick (2.2.1)
+  - Nimble (11.2.1)
+  - Quick (6.1.0)
 
 DEPENDENCIES:
   - AttributeKit (from `../`)
-  - Nimble (~> 10.0.0)
-  - Quick (~> 2.2.0)
+  - Nimble (~> 11.2.1)
+  - Quick (~> 6.1.0)
 
 SPEC REPOS:
   trunk:
@@ -18,10 +18,10 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  AttributeKit: ea570400d0bd00efa8fabffe4fc97faf92f2b147
-  Nimble: 5316ef81a170ce87baf72dd961f22f89a602ff84
-  Quick: f5754d69b7013f5864c29aab9ae6f0c79c5bc200
+  AttributeKit: baa2f293900c22dd41141d4de165eeae1dd3855c
+  Nimble: 516ac503a0fafaa8e41dbb4a70a61be421fa893a
+  Quick: 6676ffb409bf04abba2ff23902af2407bfc6ac90
 
-PODFILE CHECKSUM: 37d8a3d81a95a42bd75b60136746b94a43c6be6a
+PODFILE CHECKSUM: e0a5bbcb4e217dd4bbae28de3ba0b640dcd836c3
 
 COCOAPODS: 1.11.3

@@ -5,9 +5,9 @@ import PackageDescription
 let package = Package(
     name: "AttributeKit",
     platforms: [
-        .iOS(.v10),
-        .macOS(.v10_10),
-        .tvOS(.v10)
+        .iOS(.v13),
+        .macOS(.v10_15),
+        .tvOS(.v13)
     ],
     products: [
         .library(

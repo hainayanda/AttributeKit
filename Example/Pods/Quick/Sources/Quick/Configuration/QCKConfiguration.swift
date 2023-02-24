@@ -1,10 +1,10 @@
 import Foundation
 
 /**
-    A closure that temporarily exposes a Configuration object within
+    A closure that temporarily exposes a QCKConfiguration object within
     the scope of the closure.
 */
-public typealias QuickConfigurer = (_ configuration: Configuration) -> Void
+public typealias QuickConfigurer = (_ configuration: QCKConfiguration) -> Void
 
 /**
     A closure that, given metadata about an example, returns a boolean value
@@ -16,7 +16,7 @@ public typealias ExampleFilter = (_ example: Example) -> Bool
     A configuration encapsulates various options you can use
     to configure Quick's behavior.
 */
-final public class Configuration: NSObject {
+final public class QCKConfiguration: NSObject {
     internal let exampleHooks = ExampleHooks()
     internal let suiteHooks = SuiteHooks()
     internal var exclusionFilters: [ExampleFilter] = [
@@ -72,17 +72,22 @@ final public class Configuration: NSObject {
     }
 
     /**
-        Identical to Quick.Configuration.beforeEach, except the closure is
+        Identical to Quick.QCKConfiguration.beforeEach, except the closure is
         provided with metadata on the example that the closure is being run
         prior to.
     */
 #if canImport(Darwin)
     @objc(beforeEachWithMetadata:)
-    public func beforeEach(_ closure: @escaping BeforeExampleWithMetadataClosure) {
+    public func objc_beforeEach(_ closure: @escaping BeforeExampleWithMetadataClosure) {
+        exampleHooks.appendBefore(closure)
+    }
+
+    @nonobjc
+    public func beforeEach(_ closure: @escaping BeforeExampleWithMetadataAsyncClosure) {
         exampleHooks.appendBefore(closure)
     }
 #else
-    public func beforeEach(_ closure: @escaping BeforeExampleWithMetadataClosure) {
+    public func beforeEach(_ closure: @escaping BeforeExampleWithMetadataAsyncClosure) {
         exampleHooks.appendBefore(closure)
     }
 #endif
@@ -104,22 +109,27 @@ final public class Configuration: NSObject {
         - parameter closure: The closure to be executed before each example
                         in the test suite.
     */
-    public func beforeEach(_ closure: @escaping BeforeExampleClosure) {
+    public func beforeEach(_ closure: @escaping BeforeExampleAsyncClosure) {
         exampleHooks.appendBefore(closure)
     }
 
     /**
-        Identical to Quick.Configuration.afterEach, except the closure
+        Identical to Quick.QCKConfiguration.afterEach, except the closure
         is provided with metadata on the example that the closure is being
         run after.
     */
 #if canImport(Darwin)
     @objc(afterEachWithMetadata:)
-    public func afterEach(_ closure: @escaping AfterExampleWithMetadataClosure) {
+    public func objc_afterEach(_ closure: @escaping AfterExampleWithMetadataClosure) {
+        exampleHooks.appendAfter(closure)
+    }
+
+    @nonobjc
+    public func afterEach(_ closure: @escaping AfterExampleWithMetadataAsyncClosure) {
         exampleHooks.appendAfter(closure)
     }
 #else
-    public func afterEach(_ closure: @escaping AfterExampleWithMetadataClosure) {
+    public func afterEach(_ closure: @escaping AfterExampleWithMetadataAsyncClosure) {
         exampleHooks.appendAfter(closure)
     }
 #endif
@@ -141,8 +151,37 @@ final public class Configuration: NSObject {
         - parameter closure: The closure to be executed before each example
                         in the test suite.
     */
-    public func afterEach(_ closure: @escaping AfterExampleClosure) {
+    public func afterEach(_ closure: @escaping AfterExampleAsyncClosure) {
         exampleHooks.appendAfter(closure)
+    }
+
+    /**
+        Like Quick.DSL.aroundEach, this configures Quick to wrap each example
+        with the given closure. The closure passed to this method will wrap
+        all examples globally across the test suite. You may call this method
+        multiple times across multiple +[QuickConfigure configure:] methods in
+        order to define several closures to wrap all examples.
+
+        Note that, since Quick makes no guarantee as to the order in which
+        +[QuickConfiguration configure:] methods are evaluated, there is no
+        guarantee as to the order in which aroundEach closures are evaluated.
+        However, aroundEach does always guarantee proper nesting of operations:
+        cleanup within aroundEach closures will always happen in the reverse order
+        of setup.
+
+        - parameter closure: The closure to be executed before each example
+                        in the test suite.
+    */
+    public func aroundEach(_ closure: @escaping AroundExampleAsyncClosure) {
+        exampleHooks.appendAround(closure)
+    }
+
+    /**
+        Identical to Quick.QCKConfiguration.aroundEach, except the closure receives
+        metadata about the example that the closure wraps.
+    */
+    public func aroundEach(_ closure: @escaping AroundExampleWithMetadataAsyncClosure) {
+        exampleHooks.appendAround(closure)
     }
 
     /**
@@ -150,7 +189,7 @@ final public class Configuration: NSObject {
         the given closure prior to any and all examples that are run.
         The two methods are functionally equivalent.
     */
-    public func beforeSuite(_ closure: @escaping BeforeSuiteClosure) {
+    public func beforeSuite(_ closure: @escaping BeforeSuiteAsyncClosure) {
         suiteHooks.appendBefore(closure)
     }
 
@@ -159,7 +198,7 @@ final public class Configuration: NSObject {
         the given closure after all examples have been run.
         The two methods are functionally equivalent.
     */
-    public func afterSuite(_ closure: @escaping AfterSuiteClosure) {
+    public func afterSuite(_ closure: @escaping AfterSuiteAsyncClosure) {
         suiteHooks.appendAfter(closure)
     }
 }
