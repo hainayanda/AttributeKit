@@ -8,7 +8,7 @@
 import Foundation
 
 @propertyWrapper
-public class Sorted<Wrapped: Comparable> {
+public class Sorted<Wrapped> {
     private let comparator: (Wrapped, Wrapped) -> Bool
     
     private var sortedValueUpdated: Bool = false
@@ -36,8 +36,34 @@ public class Sorted<Wrapped: Comparable> {
         self._wrappedValue = wrappedValue
         self.comparator = comparator
     }
+}
+
+@propertyWrapper
+public class Ascending<Wrapped: Comparable>: Sorted<Wrapped> {
     
-    public convenience init(wrappedValue: [Wrapped]) {
-        self.init(wrappedValue: wrappedValue, <)
+    public override var wrappedValue: [Wrapped] {
+        get { return super.wrappedValue }
+        set { super.wrappedValue = newValue }
+    }
+    
+    public override var projectedValue: [Wrapped] { super.projectedValue }
+    
+    public init(wrappedValue: [Wrapped]) {
+        super.init(wrappedValue: wrappedValue, <)
+    }
+}
+
+@propertyWrapper
+public class Descending<Wrapped: Comparable>: Sorted<Wrapped> {
+    
+    public override var wrappedValue: [Wrapped] {
+        get { return super.wrappedValue }
+        set { super.wrappedValue = newValue }
+    }
+    
+    public override var projectedValue: [Wrapped] { super.projectedValue }
+    
+    public init(wrappedValue: [Wrapped]) {
+        super.init(wrappedValue: wrappedValue, >)
     }
 }

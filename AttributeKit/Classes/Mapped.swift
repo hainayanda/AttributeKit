@@ -34,16 +34,18 @@ public class Mapped<Wrapped, Projected> {
 // MARK: URLMapped
 
 @propertyWrapper
-public class URLMapped {
+public class URLMapped: Mapped<String, URL> {
     
-    public var wrappedValue: String
+    public override var wrappedValue: String {
+        get { super.wrappedValue }
+        set { super.wrappedValue = newValue }
+    }
     
-    /// URL from string property
-    public var projectedValue: URL? {
-        URL(string: wrappedValue)
+    public override var projectedValue: URL? {
+        super.projectedValue
     }
     
     public init(wrappedValue: String) {
-        self.wrappedValue = wrappedValue
+        super.init(wrappedValue: wrappedValue) { URL(string: $0) }
     }
 }

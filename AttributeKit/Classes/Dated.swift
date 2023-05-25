@@ -10,17 +10,19 @@ import Foundation
 // MARK: Dated
 
 @propertyWrapper
-public class Dated<Wrapped> {
-    public var wrappedValue: Wrapped
+public class Dated<Wrapped>: Mapped<Wrapped, Date> {
     
-    /// Date converted from this property. nil if fail
-    public var projectedValue: Date? { converter(wrappedValue) }
+    public override var wrappedValue: Wrapped {
+        get { super.wrappedValue }
+        set { super.wrappedValue = newValue }
+    }
     
-    private let converter: (Wrapped) -> Date?
+    public override var projectedValue: Date? {
+        super.projectedValue
+    }
     
     public init(wrappedValue: Wrapped, converter: @escaping (Wrapped) -> Date?) {
-        self.wrappedValue = wrappedValue
-        self.converter = converter
+        super.init(wrappedValue: wrappedValue, converter)
     }
 }
 
