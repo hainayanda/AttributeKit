@@ -1,5 +1,7 @@
 # AttributeKit
 
+AttributeKit is a collection of `propertyWrapper` for various function
+
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/d3136295423b4476a145799a0a1198f0)](https://app.codacy.com/gh/hainayanda/AttributeKit/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 ![build](https://github.com/hainayanda/AttributeKit/workflows/build/badge.svg)
 ![test](https://github.com/hainayanda/AttributeKit/workflows/test/badge.svg)
@@ -48,7 +50,7 @@ dependencies: [
 ]
 ```
 
-Use it in your target as a `AttributeKit`
+Use it in your target as an `AttributeKit`
 
 ```swift
  .target(
@@ -67,11 +69,11 @@ AttributeKit is available under the MIT license. See the LICENSE file for more i
 
 ## Usage
 
-AttributeKit contains many `propertyWrapper` to help simplified the development.
+AttributeKit contains many `propertyWrapper` to help simplify the development.
 
 ### Unique
 
-`Unique` is a `propertyWrapper` that wrapped an array and will automatically filter duplicated value lazyly:
+`Unique` is a `propertyWrapper` that wrapped an array and will automatically filter duplicated value lazily:
 
 ```swift
 @Unique var numbers: [Int] = [1, 1, 2, 3, 4, 4]
@@ -98,7 +100,7 @@ If your type is not `Equatable` nor `Hashable`, you can pass a comparator or has
 
 ### Filtered
 
-`Filtered` is a `propertyWrapper` that wrapped an array and will automatically filter the value lazyly:
+`Filtered` is a `propertyWrapper` that wrapped an array and will automatically filter the value lazily:
 
 ```swift
 @Filtered({ $0 > 0 }) var numbers: [Int] = [-3, -2, -1, 0, 1, 2, 3]
@@ -110,7 +112,7 @@ print(numbers)
 print($numbers)
 ```
 
-If your wrapped value is `Equatable`, you can ignore element using filtered:
+If your wrapped value is `Equatable`, you can ignore the element using filtered:
 
 ```swift
 @Filtered(ignore: 0) var numbers: [Int] = [0, 1, 2, 3]
@@ -124,7 +126,7 @@ print($numbers)
 
 ### Sorted
 
-`Sorted` is a `propertyWrapper` that wrapped an array and will automatically sort the value lazyly:
+`Sorted` is a `propertyWrapper` that wrapped an array and will automatically sort the value lazily:
 
 ```swift
 @Sorted(<) var numbers: [Int] = [2, 4, 1, 3]
@@ -201,7 +203,7 @@ string = ""
 print(string)
 ```
 
-You can use `KeyPath` to the `Equatable` property to check wether its equality with given value:
+You can use `KeyPath` to the `Equatable` property to check whether its equal to the given value:
 
 ```swift
 @Matched(\.id, equal: 123) var myObject: MyObject?
@@ -229,7 +231,7 @@ or if the property is `Comparable`:
 @Matched(\.age, .greaterThan(0)) var myObject: MyObject?
 ```
 
-If your `wrappedValue` is string, you match it with regex or characterset
+If your `wrappedValue` is a string, you match it with regex or character set
 
 ```swift
 // using regex
@@ -246,7 +248,7 @@ If your `wrappedValue` is string, you match it with regex or characterset
 ```swift
 @Mapped({ $0.count }) var text: String = "test"
 
-// whill print 4
+//will print 4
 print($text)
 ```
 
@@ -255,7 +257,7 @@ You can use KeyPath to do the mapping too:
 ```swift
 @Mapped(to: \.count) var text: String = "test"
 
-// whill print 4
+//will print 4
 print($text)
 ```
 
@@ -269,7 +271,7 @@ let urlObject: URL? = $url
 
 ### Dated
 
-`Dated` is `propertyWrapper` capable of mapping various value to `Date` when accessed by its `projectedValue`. For String:
+`Dated` is `propertyWrapper` capable of mapping various values to `Date` when accessed by its `projectedValue`. For String:
 
 ```swift
 @Dated(format: "dd-MMM-yyyy") var string: String = "10-May-1991"
@@ -277,20 +279,20 @@ let urlObject: URL? = $url
 let date: Date? = $string
 ```
 
-While for most number type (`Int`, `Float`, `Double`), you can do it like this:
+While for most number types (`Int`, `Float`, `Double`), you can do it like this:
 
 ```swift
 @Dated(unit: .days, .since1970) var int: Int = 1000
 ```
 
-available unit are `days`, `hours`, `minutes`, `seconds`, and `miliseconds`.
+available units are `days`, `hours`, `minutes`, `seconds`, and `milliseconds`.
 
 ### AutoReleased
 
-`AutoReleased` `propertyWrapped` will release its value after given lifeSpan:
+`AutoReleased` `propertyWrapper` will release its value after given lifeSpan:
 
 ```swift
-// will release object after 10 seconds
+// will release the object after 10 seconds
 @AutoReleased(lifeSpan: 10) var myObject: MyObject?
 
 // change the lifespan to 20 second
@@ -299,7 +301,7 @@ $myObject = 20
 
 ### Buffered
 
-`Buffered` is `propertyWrapper` that have a buffer for the previous value assigned to it. You simply give how much buffer you want to give for the `propertyWrapper`:
+`Buffered` is `propertyWrapper` that has a buffer for the previous value assigned to it. You simply give how much buffer you want to give for the `propertyWrapper`:
 
 ```swift
 @Buffered(size: 3) var numbers: Int = 1
@@ -314,7 +316,7 @@ print($numbers)
 
 ### Stats
 
-`Stats` is a `propertyWrapper` that will record statistic of the propertyWrapper assign history:
+`Stats` is a `propertyWrapper` that will record statistics of the `propertyWrapper` assigned history:
 
 ```swift
 @Stats var number: Int = 1
@@ -322,7 +324,7 @@ print($numbers)
 let statistic: Statistic = $number
 ```
 
-the `Statistic` object will contains many information about statistic of the propertyWrapper assign history:
+the `Statistic` object will contain many information about the statistic of the `propertyWrapper` assign history:
 
 ```swift
 public struct Statistic<Value: Calculatable> {
@@ -339,9 +341,9 @@ public struct Statistic<Value: Calculatable> {
 
 ### Encodability and Decodability of the propertyWrapper
 
-Because of the limitation of Swift language, not all propertyWrapper can implement `Encodable` and `Decodable` by default.
+Because of the limitation of Swift language, not all `propertyWrapper` can implement `Encodable` and `Decodable` by default.
 
-Here's list of propertyWrapper that implement `Encodable` if the wrapped value is `Encodable`:
+Here's a list of `propertyWrapper` that implement `Encodable` if the wrapped value is `Encodable`:
 
 - `AutoReleased`
 - `Bounded`
@@ -358,13 +360,13 @@ Here's list of propertyWrapper that implement `Encodable` if the wrapped value i
 - `Stats`
 - `Unique`
 
-And Here's list of propertyWrapper that implement `Decodable` if the wrapped value is `Decodable`:
+And Here's a list of propertyWrapper that implement `Decodable` if the wrapped value is `Decodable`:
 
 - `URLMapped`
 - `Ascending`
 - `Descending`
 - `Stats`
-- `Unique` only if its wrappedValue is `Equatable`
+- `Unique` only if its `wrappedValue` is `Equatable`
 
 ## Contribute
 

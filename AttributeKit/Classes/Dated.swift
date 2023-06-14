@@ -41,7 +41,7 @@ public enum TimeIntervalUnit {
     case hours
     case minutes
     case seconds
-    case miliseconds
+    case milliseconds
 }
 
 // MARK: TimeIntervalConvertible
@@ -64,7 +64,7 @@ extension TimeIntervalConvertible {
             return self.asTimeInterval * 60
         case .seconds:
             return self.asTimeInterval
-        case .miliseconds:
+        case .milliseconds:
             return self.asTimeInterval / 1000
         }
     }

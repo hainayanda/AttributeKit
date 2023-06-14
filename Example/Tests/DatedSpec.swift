@@ -32,12 +32,12 @@ class DatedSpec: QuickSpec {
                 }
                 it("should convert Int to Date with miliseconds unit") {
                     let expected = Date(timeIntervalSince1970: 673_747_200)
-                    @Dated(unit: .miliseconds) var intDate = 673_747_200_000
+                    @Dated(unit: .milliseconds) var intDate = 673_747_200_000
                     expect($intDate).to(equal(expected))
                 }
                 it("should convert Int to Date with miliseconds unit") {
                     let expected = Date(timeIntervalSince1970: 673_747_200)
-                    @Dated(unit: .miliseconds) var intDate = 673_747_200_000
+                    @Dated(unit: .milliseconds) var intDate = 673_747_200_000
                     expect($intDate).to(equal(expected))
                 }
                 it("should convert Int to Date with minutes unit") {
@@ -67,7 +67,7 @@ class DatedSpec: QuickSpec {
                 }
                 it("should convert Int to Date with miliseconds unit") {
                     let expected = Date(timeIntervalSinceNow: 673_747_200)
-                    @Dated(unit: .miliseconds, .sinceNow) var intDate = 673_747_200_000
+                    @Dated(unit: .milliseconds, .sinceNow) var intDate = 673_747_200_000
                     let result = $intDate!
                     let difference = result.timeIntervalSince1970 - expected.timeIntervalSince1970
                     expect(difference).to(beGreaterThanOrEqualTo(0))
@@ -75,7 +75,7 @@ class DatedSpec: QuickSpec {
                 }
                 it("should convert Int to Date with miliseconds unit") {
                     let expected = Date(timeIntervalSinceNow: 673_747_200)
-                    @Dated(unit: .miliseconds, .sinceNow) var intDate = 673_747_200_000
+                    @Dated(unit: .milliseconds, .sinceNow) var intDate = 673_747_200_000
                     let result = $intDate!
                     let difference = result.timeIntervalSince1970 - expected.timeIntervalSince1970
                     expect(difference).to(beGreaterThanOrEqualTo(0))
@@ -116,13 +116,13 @@ class DatedSpec: QuickSpec {
                 it("should convert Int to Date with miliseconds unit") {
                     let referenceDate = Date()
                     let expected = Date(timeInterval: 673_747_200, since: referenceDate)
-                    @Dated(unit: .miliseconds, .since(referenceDate)) var intDate = 673_747_200_000
+                    @Dated(unit: .milliseconds, .since(referenceDate)) var intDate = 673_747_200_000
                     expect($intDate).to(equal(expected))
                 }
                 it("should convert Int to Date with miliseconds unit") {
                     let referenceDate = Date()
                     let expected = Date(timeInterval: 673_747_200, since: referenceDate)
-                    @Dated(unit: .miliseconds, .since(referenceDate)) var intDate = 673_747_200_000
+                    @Dated(unit: .milliseconds, .since(referenceDate)) var intDate = 673_747_200_000
                     expect($intDate).to(equal(expected))
                 }
                 it("should convert Int to Date with minutes unit") {
