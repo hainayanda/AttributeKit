@@ -34,7 +34,7 @@ public class Mapped<Wrapped, Projected> {
 // MARK: URLMapped
 
 @propertyWrapper
-public class URLMapped: Mapped<String, URL> {
+public final class URLMapped: Mapped<String, URL> {
     
     public override var wrappedValue: String {
         get { super.wrappedValue }
@@ -47,5 +47,23 @@ public class URLMapped: Mapped<String, URL> {
     
     public init(wrappedValue: String) {
         super.init(wrappedValue: wrappedValue) { URL(string: $0) }
+    }
+}
+
+// MARK: URLMapped + Encodable
+
+extension URLMapped: Encodable {
+    
+    public func encode(to encoder: Encoder) throws {
+        try wrappedValue.encode(to: encoder)
+    }
+}
+
+// MARK: URLMapped + Decodable
+
+extension URLMapped: Decodable {
+    
+    public convenience init(from decoder: Decoder) throws {
+        self.init(wrappedValue: try String(from: decoder))
     }
 }

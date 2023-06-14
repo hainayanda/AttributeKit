@@ -1,5 +1,5 @@
 //
-//  CalculatedSpec.swift
+//  StatsSpec.swift
 //  AttributeKit_Tests
 //
 //  Created by Nayanda Haberty on 24/2/23.
@@ -11,14 +11,14 @@ import AttributeKit
 import Quick
 import Nimble
 
-class CalculatedSpec: QuickSpec {
+class StatsSpec: QuickSpec {
     
     override func spec() {
         var initial: Int!
-        var wrapperUnderTest: Calculated<Int>!
+        var wrapperUnderTest: Stats<Int>!
         beforeEach {
             initial = 6
-            wrapperUnderTest = Calculated(wrappedValue: initial)
+            wrapperUnderTest = Stats(wrappedValue: initial)
         }
         it("should calculate stats of the property") {
             let added: [Int] = [8, 2, 4]

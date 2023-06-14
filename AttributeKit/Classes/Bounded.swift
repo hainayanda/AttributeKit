@@ -41,6 +41,14 @@ public class Bounded<Wrapped: Comparable> {
     }
 }
 
+// MARK: Bounded + Encodable
+
+extension Bounded: Encodable where Wrapped: Encodable {
+    public func encode(to encoder: Encoder) throws {
+        try wrappedValue.encode(to: encoder)
+    }
+}
+
 // MARK: LowerBounded
 
 @propertyWrapper
@@ -75,6 +83,14 @@ public class LowerBounded<Wrapped: Comparable> {
     }
 }
 
+// MARK: LowerBounded + Encodable
+
+extension LowerBounded: Encodable where Wrapped: Encodable {
+    public func encode(to encoder: Encoder) throws {
+        try wrappedValue.encode(to: encoder)
+    }
+}
+
 // MARK: UpperBounded
 
 @propertyWrapper
@@ -106,5 +122,13 @@ public class UpperBounded<Wrapped: Comparable> {
     public init(wrappedValue: Wrapped, _ upperBound: Wrapped) {
         self.upperBound = upperBound
         self._wrappedValue = wrappedValue
+    }
+}
+
+// MARK: UpperBounded + Encodable
+
+extension UpperBounded: Encodable where Wrapped: Encodable {
+    public func encode(to encoder: Encoder) throws {
+        try wrappedValue.encode(to: encoder)
     }
 }

@@ -1,5 +1,5 @@
 //
-//  Counted.swift
+//  Stats.swift
 //  AttributeKit
 //
 //  Created by Nayanda Haberty on 24/2/23.
@@ -70,10 +70,10 @@ public struct Statistic<Value: Calculatable> {
     }
 }
 
-// MARK: Calculated
+// MARK: Stats
 
 @propertyWrapper
-public class Calculated<Wrapped: Calculatable> {
+public final class Stats<Wrapped: Calculatable> {
     private var stats: Statistic<Wrapped>
     
     public var wrappedValue: Wrapped {
@@ -87,5 +87,23 @@ public class Calculated<Wrapped: Calculatable> {
     public init(wrappedValue: Wrapped) {
         self.stats = Statistic(initial: wrappedValue)
         self.wrappedValue = wrappedValue
+    }
+}
+
+// MARK: Stats + Encodable
+
+extension Stats: Encodable where Wrapped: Encodable {
+    
+    public func encode(to encoder: Encoder) throws {
+        try wrappedValue.encode(to: encoder)
+    }
+}
+
+// MARK: Stats + Decodable
+
+extension Stats: Decodable where Wrapped: Decodable {
+    
+    public convenience init(from decoder: Decoder) throws {
+        self.init(wrappedValue: try Wrapped(from: decoder))
     }
 }

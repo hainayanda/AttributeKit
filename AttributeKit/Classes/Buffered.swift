@@ -35,3 +35,11 @@ public class Buffered<Wrapped> {
         buffer.append(value)
     }
 }
+
+// MARK: Buffered + Encodable
+
+extension Buffered: Encodable where Wrapped: Encodable {
+    public func encode(to encoder: Encoder) throws {
+        try wrappedValue.encode(to: encoder)
+    }
+}

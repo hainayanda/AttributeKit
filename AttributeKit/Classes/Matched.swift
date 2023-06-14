@@ -126,3 +126,11 @@ public extension Matched where Wrapped: Comparable {
         }
     }
 }
+
+// MARK: Matched + Encodable
+
+extension Matched: Encodable where Wrapped: Encodable {
+    public func encode(to encoder: Encoder) throws {
+        try wrappedValue?.encode(to: encoder)
+    }
+}

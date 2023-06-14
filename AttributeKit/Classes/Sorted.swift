@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: Sorted
+
 @propertyWrapper
 public class Sorted<Wrapped> {
     private let comparator: (Wrapped, Wrapped) -> Bool
@@ -38,8 +40,10 @@ public class Sorted<Wrapped> {
     }
 }
 
+// MARK: Ascending
+
 @propertyWrapper
-public class Ascending<Wrapped: Comparable>: Sorted<Wrapped> {
+public final class Ascending<Wrapped: Comparable>: Sorted<Wrapped> {
     
     public override var wrappedValue: [Wrapped] {
         get { return super.wrappedValue }
@@ -53,8 +57,28 @@ public class Ascending<Wrapped: Comparable>: Sorted<Wrapped> {
     }
 }
 
+// MARK: Ascending + Encodable
+
+extension Ascending: Encodable where Wrapped: Encodable {
+    
+    public func encode(to encoder: Encoder) throws {
+        try wrappedValue.encode(to: encoder)
+    }
+}
+
+// MARK: Ascending + Decodable
+
+extension Ascending: Decodable where Wrapped: Decodable {
+    
+    public convenience init(from decoder: Decoder) throws {
+        self.init(wrappedValue: try [Wrapped](from: decoder))
+    }
+}
+
+// MARK: Descending
+
 @propertyWrapper
-public class Descending<Wrapped: Comparable>: Sorted<Wrapped> {
+public final class Descending<Wrapped: Comparable>: Sorted<Wrapped> {
     
     public override var wrappedValue: [Wrapped] {
         get { return super.wrappedValue }
@@ -65,5 +89,23 @@ public class Descending<Wrapped: Comparable>: Sorted<Wrapped> {
     
     public init(wrappedValue: [Wrapped]) {
         super.init(wrappedValue: wrappedValue, >)
+    }
+}
+
+// MARK: Ascending + Encodable
+
+extension Descending: Encodable where Wrapped: Encodable {
+    
+    public func encode(to encoder: Encoder) throws {
+        try wrappedValue.encode(to: encoder)
+    }
+}
+
+// MARK: Ascending + Decodable
+
+extension Descending: Decodable where Wrapped: Decodable {
+    
+    public convenience init(from decoder: Decoder) throws {
+        self.init(wrappedValue: try [Wrapped](from: decoder))
     }
 }

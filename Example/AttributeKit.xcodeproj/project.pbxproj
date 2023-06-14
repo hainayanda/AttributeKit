@@ -3,14 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A3561C62A1F4B91008D106D /* StatsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3561C52A1F4B91008D106D /* StatsSpec.swift */; };
 		3AE6D51429A85CCF0021491A /* AutoReleasedSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE6D51329A85CCF0021491A /* AutoReleasedSpec.swift */; };
 		3AE6D51629A861520021491A /* BoundedSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE6D51529A861520021491A /* BoundedSpec.swift */; };
 		3AE6D51829A862D00021491A /* BufferedSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE6D51729A862D00021491A /* BufferedSpec.swift */; };
-		3AE6D51A29A864300021491A /* CalculatedSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE6D51929A864300021491A /* CalculatedSpec.swift */; };
 		3AE6D51C29A870630021491A /* DatedSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE6D51B29A870630021491A /* DatedSpec.swift */; };
 		3AE6D51E29A87FAF0021491A /* FilteredSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE6D51D29A87FAF0021491A /* FilteredSpec.swift */; };
 		3AE6D52029A880BE0021491A /* MappedSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE6D51F29A880BE0021491A /* MappedSpec.swift */; };
@@ -39,10 +39,10 @@
 /* Begin PBXFileReference section */
 		0C17AAF984D99A81E85F00C8 /* Pods_AttributeKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AttributeKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		199880541AE448A145FFFD85 /* Pods_AttributeKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AttributeKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A3561C52A1F4B91008D106D /* StatsSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsSpec.swift; sourceTree = "<group>"; };
 		3AE6D51329A85CCF0021491A /* AutoReleasedSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoReleasedSpec.swift; sourceTree = "<group>"; };
 		3AE6D51529A861520021491A /* BoundedSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundedSpec.swift; sourceTree = "<group>"; };
 		3AE6D51729A862D00021491A /* BufferedSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BufferedSpec.swift; sourceTree = "<group>"; };
-		3AE6D51929A864300021491A /* CalculatedSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatedSpec.swift; sourceTree = "<group>"; };
 		3AE6D51B29A870630021491A /* DatedSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatedSpec.swift; sourceTree = "<group>"; };
 		3AE6D51D29A87FAF0021491A /* FilteredSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredSpec.swift; sourceTree = "<group>"; };
 		3AE6D51F29A880BE0021491A /* MappedSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MappedSpec.swift; sourceTree = "<group>"; };
@@ -148,12 +148,12 @@
 				3AE6D51329A85CCF0021491A /* AutoReleasedSpec.swift */,
 				3AE6D51529A861520021491A /* BoundedSpec.swift */,
 				3AE6D51729A862D00021491A /* BufferedSpec.swift */,
-				3AE6D51929A864300021491A /* CalculatedSpec.swift */,
 				3AE6D51B29A870630021491A /* DatedSpec.swift */,
 				3AE6D51D29A87FAF0021491A /* FilteredSpec.swift */,
 				3AE6D51F29A880BE0021491A /* MappedSpec.swift */,
 				3AE6D52129A881B60021491A /* MatchedSpec.swift */,
 				3AE6D52329A89D9E0021491A /* SortedSpec.swift */,
+				3A3561C52A1F4B91008D106D /* StatsSpec.swift */,
 				3AE6D52529A89EBE0021491A /* UniqueSpec.swift */,
 			);
 			path = Tests;
@@ -337,6 +337,7 @@
 		};
 		3A73706629A8B7BF00D137E9 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -407,7 +408,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3AE6D51A29A864300021491A /* CalculatedSpec.swift in Sources */,
 				3AE6D51629A861520021491A /* BoundedSpec.swift in Sources */,
 				3AE6D52029A880BE0021491A /* MappedSpec.swift in Sources */,
 				3AE6D52429A89D9E0021491A /* SortedSpec.swift in Sources */,
@@ -416,6 +416,7 @@
 				3AE6D52229A881B60021491A /* MatchedSpec.swift in Sources */,
 				3AE6D51429A85CCF0021491A /* AutoReleasedSpec.swift in Sources */,
 				3AE6D51829A862D00021491A /* BufferedSpec.swift in Sources */,
+				3A3561C62A1F4B91008D106D /* StatsSpec.swift in Sources */,
 				3AE6D52629A89EBE0021491A /* UniqueSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -544,7 +545,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -556,7 +558,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AttributeKit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -572,7 +577,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AttributeKit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -595,7 +603,11 @@
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -614,7 +626,11 @@
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;

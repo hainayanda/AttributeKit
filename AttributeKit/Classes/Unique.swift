@@ -10,7 +10,7 @@ import Foundation
 // MARK: Unique
 
 @propertyWrapper
-public class Unique<Wrapped> {
+public final class Unique<Wrapped> {
     
     private let distinctor: ([Wrapped]) -> [Wrapped]
     
@@ -68,10 +68,26 @@ extension Unique where Wrapped: Equatable {
     }
 }
 
-// MARK: Unique + Equatable
+extension Unique: Decodable where Wrapped: Decodable, Wrapped: Equatable {
+    
+    public convenience init(from decoder: Decoder) throws {
+        self.init(wrappedValue: try [Wrapped](from: decoder))
+    }
+}
+
+// MARK: Unique + Hashable
 
 extension Unique where Wrapped: Hashable {
     public convenience init(wrappedValue: [Wrapped]) {
         self.init(wrappedValue: wrappedValue) { $0 }
+    }
+}
+
+// MARK: Unique + Encodable
+
+extension Unique: Encodable where Wrapped: Encodable {
+    
+    public func encode(to encoder: Encoder) throws {
+        try wrappedValue.encode(to: encoder)
     }
 }

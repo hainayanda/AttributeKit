@@ -50,3 +50,11 @@ public extension Filtered where Wrapped: Equatable {
     }
     
 }
+
+// MARK: Filtered + Encodable
+
+extension Filtered: Encodable where Wrapped: Encodable {
+    public func encode(to encoder: Encoder) throws {
+        try wrappedValue.encode(to: encoder)
+    }
+}

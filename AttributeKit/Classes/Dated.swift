@@ -143,3 +143,11 @@ public extension Dated where Wrapped == String {
         self.init(wrappedValue: wrappedValue, formatter: dateFormatter)
     }
 }
+
+// MARK: Dated + Encodable
+
+extension Dated: Encodable where Wrapped: Encodable {
+    public func encode(to encoder: Encoder) throws {
+        try wrappedValue.encode(to: encoder)
+    }
+}

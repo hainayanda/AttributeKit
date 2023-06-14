@@ -50,3 +50,11 @@ public class AutoReleased<Wrapped> {
         DispatchQueue.main.asyncAfter(deadline: .now() + lifeSpan, execute: worker)
     }
 }
+
+// MARK: AutoReleased + Encodable
+
+extension AutoReleased: Encodable where Wrapped: Encodable {
+    public func encode(to encoder: Encoder) throws {
+        try wrappedValue.encode(to: encoder)
+    }
+}
