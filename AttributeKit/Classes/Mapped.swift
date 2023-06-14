@@ -26,7 +26,7 @@ public class Mapped<Wrapped, Projected> {
         self.wrappedValue = wrappedValue
     }
     
-    public convenience init(wrappedValue: Wrapped, keyPath: KeyPath<Wrapped, Projected>) {
+    public convenience init(wrappedValue: Wrapped, to keyPath: KeyPath<Wrapped, Projected>) {
         self.init(wrappedValue: wrappedValue) { $0[keyPath: keyPath] }
     }
 }

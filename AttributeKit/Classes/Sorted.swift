@@ -40,6 +40,12 @@ public class Sorted<Wrapped> {
     }
 }
 
+extension Sorted: Encodable where Wrapped: Encodable {
+    public func encode(to encoder: Encoder) throws {
+        try wrappedValue.encode(to: encoder)
+    }
+}
+
 // MARK: Ascending
 
 @propertyWrapper
@@ -54,15 +60,6 @@ public final class Ascending<Wrapped: Comparable>: Sorted<Wrapped> {
     
     public init(wrappedValue: [Wrapped]) {
         super.init(wrappedValue: wrappedValue, <)
-    }
-}
-
-// MARK: Ascending + Encodable
-
-extension Ascending: Encodable where Wrapped: Encodable {
-    
-    public func encode(to encoder: Encoder) throws {
-        try wrappedValue.encode(to: encoder)
     }
 }
 
@@ -89,15 +86,6 @@ public final class Descending<Wrapped: Comparable>: Sorted<Wrapped> {
     
     public init(wrappedValue: [Wrapped]) {
         super.init(wrappedValue: wrappedValue, >)
-    }
-}
-
-// MARK: Ascending + Encodable
-
-extension Descending: Encodable where Wrapped: Encodable {
-    
-    public func encode(to encoder: Encoder) throws {
-        try wrappedValue.encode(to: encoder)
     }
 }
 

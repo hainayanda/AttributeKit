@@ -58,6 +58,11 @@ public final class Unique<Wrapped> {
             }
         }
     }
+    
+    public convenience init<Property: Hashable>(wrappedValue: [Wrapped], by keyPath: KeyPath<Wrapped, Property>) {
+        self.init(wrappedValue: wrappedValue, projection: { $0[keyPath: keyPath] })
+    }
+    
 }
 
 // MARK: Unique + Equatable

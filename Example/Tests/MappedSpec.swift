@@ -15,7 +15,7 @@ class MappedSpec: QuickSpec {
     
     override func spec() {
         it("should map the property") {
-            @Mapped(keyPath: \.count) var text = "Lorem ipsum"
+            @Mapped(to: \.count) var text = "Lorem ipsum"
             expect($text).to(equal(11))
         }
         it("should map to url if can") {
