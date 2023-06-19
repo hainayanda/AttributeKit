@@ -18,8 +18,9 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 - Swift 5.5 or higher
 - iOS 13.0 or higher
-- MacOS 10.15 or higher (SPM Only)
-- TVOS 13.0 or higer (SPM Only)
+- MacOS 10.15 or higher
+- TVOS 13.0 or higer
+- WatchOS 4.0 or higher
 - XCode 13 or higher
 
 ## Installation
